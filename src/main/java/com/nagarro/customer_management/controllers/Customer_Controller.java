@@ -59,6 +59,10 @@ public class Customer_Controller {
         }
     }
 
+    @GetMapping("/welcome")
+	public String getMessage() {
+		return "Welcome to Customer Managament Service!!";
+	}
     
  // Add a new customer
     @PostMapping
