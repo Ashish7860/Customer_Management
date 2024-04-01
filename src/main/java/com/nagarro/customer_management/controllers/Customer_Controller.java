@@ -66,15 +66,14 @@ public class Customer_Controller {
     
  // Add a new customer
     @PostMapping
-    public ResponseEntity<?> addCustomer(@Valid @RequestBody Customer customer) {
+    public ResponseEntity<Customer> addCustomer(@Valid @RequestBody Customer customer) {
         try {
             Customer addedCustomer = customerService.addCustomer(customer);
             return ResponseEntity.status(HttpStatus.CREATED).body(addedCustomer);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
-    
 
  // Update an existing customer    
     @PutMapping("/{id}")
